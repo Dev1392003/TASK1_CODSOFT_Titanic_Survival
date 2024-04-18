@@ -12,7 +12,7 @@ The aim of this project is to build a model that predicts whether a passenger on
 
 ## Dataset
 
-The dataset for this project is imported from a CSV file, "archive.zip". The dataset contains information about passengers on the Titanic, including their survival status, class (Pclass), sex (Gender), and age (Age).
+The dataset for this project is imported from a CSV file, "Titanic-Dataset.csv". The dataset contains information about passengers on the Titanic, including their survival status, class (Pclass), sex (Gender), and age (Age).
 
 ## Libraries Used
 
@@ -28,14 +28,14 @@ The following important libraries were used for this project:
 
 ## Data Exploration and Preprocessing
 
-1. The dataset was loaded using pandas as a DataFrame, and its shape and a glimpse of the first 10 rows were displayed using `df.shape` and `df.head(10)`.
-2. Descriptive statistics for the numerical columns were displayed using `df.describe()` to get an overview of the data, including missing values.
-3. The count of passengers who survived and those who did not was visualized using `sns.countplot(x=df['Survived'])`.
-4. The count of survivals was visualized with respect to the Pclass using `sns.countplot(x=df['Survived'], hue=df['Pclass'])`.
-5. The count of survivals was visualized with respect to the gender using `sns.countplot(x=df['Sex'], hue=df['Survived'])`.
-6. The survival rate by gender was calculated and displayed using `df.groupby('Sex')[['Survived']].mean()`.
+1. The dataset was loaded using pandas as a DataFrame, and its shape and a glimpse of the total 891 rows were displayed using `df.shape` and `df.head(891)`.
+2. Descriptive statistics for the numerical columns were displayed using `titanic_data.describe()` to get an overview of the data, including missing values.
+3. The count of passengers who survived and those who did not was visualized using `sns.countplot(x=titanic_data['Survived'])`.
+4. The count of survivals was visualized with respect to the Pclass using `sns.countplot(x=titanic_data['Survived'], hue=titanic_data['Pclass'])`.
+5. The count of survivals was visualized with respect to the gender using `sns.countplot(x=titanic_data['Gender'], hue=titanic_data['Survived'])`.
+6. The survival rate by gender was calculated and displayed using `titanic_data.groupby('Gender')[['Survived']].mean()`.
 7. The 'Sex' column was converted from categorical to numerical values using LabelEncoder from `sklearn.preprocessing`.
-8. After encoding the 'Sex' column, non-required columns like 'Age' were dropped from the DataFrame.
+8. After encoding the 'Gender' column, non-required columns like 'Age' were dropped from the DataFrame.
 
 ## Model Training
 
@@ -48,4 +48,4 @@ The following important libraries were used for this project:
 1. The model was used to predict the survival status of passengers in the test set.
 2. The predicted results were printed using `log.predict(X_test)`.
 3. The actual target values in the test set were printed using `Y_test`.
-4. A sample prediction was made using `log.predict([[2, 1]])` with Pclass=2 and Sex=Male (1).
+4. A sample prediction was made using `log.predict([[2, 1]])` with Pclass=2 and Gender=Male (1).
